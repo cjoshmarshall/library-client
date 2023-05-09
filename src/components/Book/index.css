@@ -1,0 +1,28 @@
+.book-container {
+  margin: auto;
+}
+
+.book-subcontainer {
+  width: 250px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 2px;
+  transition: 50ms linear;
+}
+
+.book-subcontainer:hover {
+  border: 1px solid gray;
+  outline: 1.5px solid gray;
+  box-shadow: 10px 10px 18px 2px gray;
+}
+
+.book-category {
+  margin: 10px;
+  text-align: right;
+}
+
+.book-category > span {
+  padding: 0 10px;
+  border: 1.5px solid gray;
+  border-radius: 2px;
+}

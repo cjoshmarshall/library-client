@@ -1,0 +1,46 @@
+.books-container {
+  margin: 25px;
+}
+
+.books-subcontainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 25px;
+}
+
+.books-button-container {
+  margin: 25px;
+  text-align: right;
+}
+
+.books-button {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 25ms linear;
+}
+.books-button:hover {
+  border: 1px solid gray;
+  outline: 1.5px solid gray;
+}
+
+@media (width<1070px) {
+  .books-subcontainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width<820px) {
+  .books-subcontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width<570px) {
+  .books-subcontainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
