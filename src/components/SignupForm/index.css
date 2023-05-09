@@ -1,0 +1,21 @@
+.signin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-subcontainer {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+}
+
+.signin-subcontainer > span {
+  font-size: small;
+  font-style: italic;
+  color: rgb(142, 0, 0);
+}
+
+.signin-subcontainer > button {
+  margin: 1rem;
+  cursor: pointer;
+}

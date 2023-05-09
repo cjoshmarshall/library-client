@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import "./index.css";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { privateRequest } from "../../api/axios";
@@ -42,32 +43,34 @@ function LoginForm() {
         JSON.stringify(input)
       );
       setAuth(res.data);
-      navigate("/");
+      navigate("/users");
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      LoginForm
-      <label htmlFor="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        onChange={handleInput}
-        onBlur={handleError}
-      />
-      {error.username}
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        onChange={handleInput}
-        onBlur={handleError}
-      />
-      {error.password}
-      <button>LOGIN</button>
+    <form onSubmit={handleSubmit} className="login-form">
+      <h2>Login Form</h2>
+      <div className="login-subcontainer">
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          onChange={handleInput}
+          onBlur={handleError}
+        />
+        <span>{error.username}</span>
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          onChange={handleInput}
+          onBlur={handleError}
+        />
+        <span>{error.password}</span>
+        <button>LOGIN</button>
+      </div>
     </form>
   );
 }

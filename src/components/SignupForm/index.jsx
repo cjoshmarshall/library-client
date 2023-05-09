@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
-import AuthContext from "../../context/AuthProvider";
+import React, { useState } from "react";
+import "./index.css";
 import { useNavigate } from "react-router-dom";
 import { capitalizeFirstLetter } from "../../utils/string.js";
 import { privateRequest } from "../../api/axios";
+import useAuth from "../../hooks/useAuth";
 
 function SignupForm() {
   const [input, setInput] = useState({
@@ -10,7 +11,7 @@ function SignupForm() {
     email: "",
     username: "",
     password: "",
-    admin: "",
+    admin: false,
   });
 
   const [error, setError] = useState({
@@ -21,7 +22,7 @@ function SignupForm() {
     type: "",
   });
 
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
 
@@ -52,53 +53,55 @@ function SignupForm() {
         JSON.stringify(input)
       );
       setAuth(res.data);
-      navigate("/");
+      navigate("/users");
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      SignupForm
-      <label htmlFor="name">Name</label>
-      <input
-        type="text"
-        name="name"
-        onChange={handleInput}
-        onBlur={handleError}
-      />
-      {error.name}
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        onChange={handleInput}
-        onBlur={handleError}
-      />
-      {error.email}
-      <label htmlFor="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        onChange={handleInput}
-        onBlur={handleError}
-      />
-      {error.username}
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        onChange={handleInput}
-        onBlur={handleError}
-      />
-      {error.password}
-      <label htmlFor="type">TYPE</label>
-      <select name="type" id="type" onChange={handleInput}>
-        <option value="MEMBER">Member</option>
-        <option value="LIBRARIAN">Librarian</option>
-      </select>
-      <button>Submit</button>
+    <form onSubmit={handleSubmit} className="signin-form">
+      <h2>Signup Form</h2>
+      <div className="signin-subcontainer">
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          onChange={handleInput}
+          onBlur={handleError}
+        />
+        <span>{error.name}</span>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          onChange={handleInput}
+          onBlur={handleError}
+        />
+        <span>{error.email}</span>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          onChange={handleInput}
+          onBlur={handleError}
+        />
+        <span>{error.username}</span>
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          onChange={handleInput}
+          onBlur={handleError}
+        />
+        <span>{error.password}</span>
+        <label htmlFor="type">TYPE</label>
+        <select name="type" id="type" onChange={handleInput}>
+          <option value="MEMBER">Member</option>
+          <option value="LIBRARIAN">Librarian</option>
+        </select>
+        <button>Submit</button>
+      </div>
     </form>
   );
 }

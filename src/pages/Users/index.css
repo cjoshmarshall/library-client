@@ -1,0 +1,31 @@
+.users-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 25px;
+  margin: 25px;
+}
+
+.users-subcontainer {
+  width: 250px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 2px;
+  transition: 50ms linear;
+}
+
+.users-subcontainer:hover {
+  border: 1px solid gray;
+  outline: 1.5px solid gray;
+  box-shadow: 10px 10px 18px 2px gray;
+}
+
+.users-category {
+  margin: 10px;
+  text-align: right;
+}
+
+.users-category > span {
+  padding: 0 10px;
+  border: 1.5px solid gray;
+  border-radius: 2px;
+}

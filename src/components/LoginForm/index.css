@@ -1,0 +1,21 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-subcontainer {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+}
+
+.login-subcontainer > span {
+  font-size: small;
+  font-style: italic;
+  color: rgb(142, 0, 0);
+}
+
+.login-subcontainer > button {
+  margin: 1rem;
+  cursor: pointer;
+}
